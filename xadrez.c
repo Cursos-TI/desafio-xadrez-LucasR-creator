@@ -1,17 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    // mover a torre 7 casas para cima
-    for (int i = 0; i < 7; i++) {
-        printf ("cima\n"); 
+    // Posição inicial do cavalo
+    int cima = 1;
+    int direita = 2;
+
+    printf("Iniciando o movimento do cavalo...\n");
+
+    // Loop while para mover o cavalo em "L"
+    while (cima < direita) {
+        // Movimento para cima
+        for (int i = 0; i < 1; i++) {
+            printf("Movendo para cima\n");
+            cima++;
+        }
+
+        // Movimento para a esquerda
+        for (int j = 0; j < 1; j++) {
+            printf("Movendo para a esquerda\n");
+            direita--;
+        }
     }
-    // mover bisbo 2 casas para direita
-    for (int i = 0; i < 2; i++) {
-        printf ("direita\n"); 
-    }
-    // mover rainha 1 casa para direita
-    for (int i = 0; i < 1; i++) {
-        printf ("direita\n"); 
-    }
+
+    printf("Movimento completo.\n");
+
     return 0;
 }
