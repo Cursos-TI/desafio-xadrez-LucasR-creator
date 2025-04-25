@@ -1,28 +1,55 @@
 #include <stdio.h>
 
+// Função recursiva para mover o bispo (diagonal: cima + direita)
+void moverBispo(int passos) {
+    if (passos == 0) return;
+    printf("Cima\n");
+    printf("Direita\n");
+    moverBispo(passos - 1);
+}
+
+// Função recursiva para mover a torre (direita)
+void moverTorre(int passos) {
+    if (passos == 0) return;
+    printf("Direita\n");
+    moverTorre(passos - 1);
+}
+
+// Função recursiva para mover a rainha (esquerda)
+void moverRainha(int passos) {
+    if (passos == 0) return;
+    printf("Esquerda\n");
+    moverRainha(passos - 1);
+}
+
 int main() {
-    // Posição inicial do cavalo
-    int cima = 1;
-    int direita = 2;
+    printf("Movimentação da Torre:\n");
+    moverTorre(5); // 5 casas para a direita
 
-    printf("Iniciando o movimento do cavalo...\n");
+    printf("\nMovimentação do Bispo:\n");
+    moverBispo(5); // 5 casas na diagonal superior direita
 
-    // Loop while para mover o cavalo em "L"
-    while (cima < direita) {
-        // Movimento para cima
-        for (int i = 0; i < 1; i++) {
-            printf("Movendo para cima\n");
-            cima++;
+    printf("\nMovimentação da Rainha:\n");
+    moverRainha(8); // 8 casas para a esquerda
+
+    printf("\nMovimentação do Cavalo:\n");
+
+    // Simula movimento em L: 2 para cima e 1 para a direita
+    for (int cima = 0, direita = 0; cima < 2 || direita < 1; cima++, direita++) {
+        if (cima < 2) {
+            printf("Cima\n");
+        } else {
+            continue; // pula pra próxima iteração se já fez 2 passos pra cima
         }
 
-        // Movimento para a esquerda
-        for (int j = 0; j < 1; j++) {
-            printf("Movendo para a esquerda\n");
-            direita--;
+        if (direita == 1) {
+            break; // termina quando já foi uma vez pra direita
+        }
+        if (direita < 1) {
+            printf("Direita\n");
         }
     }
 
-    printf("Movimento completo.\n");
-
+    printf("\nMovimentos completos!\n");
     return 0;
 }
